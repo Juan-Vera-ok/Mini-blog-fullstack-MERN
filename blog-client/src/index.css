@@ -1,0 +1,129 @@
+/* Blog.css */
+
+body {
+  font-family: 'Arial', sans-serif;
+  background-image: url(https://images8.alphacoders.com/137/thumb-1920-1372179.jpeg);
+  background-size: cover;
+  margin: 0;
+  padding: 0;
+  color: #333;
+}
+
+h1 {
+  text-align: center;
+  color: #fff;
+  margin-top: 20px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+  max-width: 600px;
+  margin: 20px auto;
+  padding: 20px;
+  background: #fff4;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+form input {
+  margin-bottom: 15px;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+form button {
+  padding: 10px 20px;
+  font-size: 16px;
+  color: #fff;
+  background-color: #007bff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+form button:hover {
+  background-color: #0056b3;
+}
+
+
+.post-grid {
+  display: flex;
+  flex-wrap: wrap;  
+  justify-content: flex-start; 
+  gap: 20px; 
+  width: 80%;
+  max-width: 1200px;
+  margin: 20px auto;
+}
+
+
+.post-card {
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  flex: 1 1 calc(30% - 0px);  
+  max-width: calc(30% - 0px); 
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 0.5s forwards;
+}
+
+/* Efecto hover */
+.post-card:hover {
+  transform: translateY(-20px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.post-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.post-card-content {
+  padding: 15px;
+}
+
+.post-card h2 {
+  font-size: 18px;
+  color: #007bff;
+  margin-bottom: 10px;
+}
+
+.post-card p {
+  font-size: 16px;
+  color: #666;
+  line-height: 1.5;
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+  .post-card {
+    flex: 1 1 calc(50% - 0px);  
+  }
+}
+
+@media (max-width: 480px) {
+  .post-card {
+    flex: 1 1 100%;  
+  }
+}
