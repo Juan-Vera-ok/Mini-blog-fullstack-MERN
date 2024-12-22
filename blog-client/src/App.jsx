@@ -6,17 +6,15 @@ export default function App() {
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
 
-  
+  const fetchPosts = async () => {
+    try {
+      const response = await axios.get("http://localhost:3000/get-posts");
+      setPosts(response.data);
+    } catch (error) {
+      console.error("Error fetching posts:", error.message);
+    }
+  };
   useEffect(() => {
-    const fetchPosts = async () => {
-      try {
-        const response = await axios.get("http://localhost:3000/get-posts");
-        setPosts(response.data);
-      } catch (error) {
-        console.error("Error fetching posts:", error.message);
-      }
-    };
-
     fetchPosts();
   }, []);
 
